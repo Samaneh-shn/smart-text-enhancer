@@ -115,4 +115,6 @@ Released under the **MIT License** © 2025 Samaneh Shirinnezhad.
 
 ## 📷 Preview
 
-![Smart Text Enhancer Toolbar and Context Menu](./preview/screenshot.png)
+![smart-text-enhancer](https://github.com/user-attachments/assets/1f06e5cb-f4d7-4a5e-95d7-546cab8b7218)
+
+
