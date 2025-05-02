@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Smart Text Enhancer</title>
+  <style>
+    :root {
+      /* Light theme variables */
+      --background-color: #ffffff;
+      --text-color: #333333;
+      --input-border-color: #ccc;
+      --button-background: #4CAF50; /* Green for popup buttons */
+      --button-hover-background: #45a049; /* Slightly darker green */
+      --label-color: #333333;
+    }
+
+    [data-theme="dark"] {
+      /* Dark theme variables */
+      --background-color: #1e1e1e;
+      --text-color: #e0e0e0;
+      --input-border-color: #555555;
+      --button-background: #388e3c; /* Darker green for dark mode */
+      --button-hover-background: #2e7d32; /* Even darker green */
+      --label-color: #e0e0e0;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      padding: 10px;
+      width: 250px;
+      background-color: var(--background-color);
+      color: var(--text-color);
+      transition: background-color 0.3s, color 0.3s;
+    }
+
+    label {
+      display: flex;
+      align-items: center;
+      margin-bottom: 5px;
+      font-weight: bold;
+      color: var(--label-color);
+    }
+
+    select, input {
+      width: 100%;
+      padding: 5px;
+      margin-bottom: 10px;
+      border: 1px solid var(--input-border-color);
+      border-radius: 4px;
+      background-color: var(--background-color);
+      color: var(--text-color);
+    }
+
+    input[type="checkbox"] {
+      margin-right: 10px;
+      width: auto;
+    }
+
+    button {
+      width: 100%;
+      padding: 8px;
+      background-color: var(--button-background);
+      color: white;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background-color: var(--button-hover-background);
+    }
+  </style>
+</head>
+<body>
+  <label for="apiKey">OpenAI API Key:</label>
+  <input type="password" id="apiKey" placeholder="Enter your API key">
+
+  <label for="translateLanguage">Translate to:</label>
+  <select id="translateLanguage">
+    <option value="Farsi">Farsi</option>
+    <option value="Spanish">Spanish</option>
+    <option value="French">French</option>
+    <option value="German">German</option>
+    <option value="Chinese">Chinese</option>
+    <option value="Japanese">Japanese</option>
+    <option value="Arabic">Arabic</option>
+  </select>
+
+  <label for="readingLevel">Simplification Reading Level:</label>
+  <select id="readingLevel">
+    <option value="3">Grade 3</option>
+    <option value="5">Grade 5</option>
+    <option value="7">Grade 7</option>
+    <option value="9">Grade 9</option>
+  </select>
+
+  <label for="font">Font:</label>
+  <select id="font">
+    <option value="default">Default</option>
+    <option value="opendyslexic">OpenDyslexic</option>
+  </select>
+
+  <label for="textSize">Text Size (px):</label>
+  <input type="number" id="textSize" min="10" max="50" placeholder="Enter text size (px)">
+
+  <label>
+    <input type="checkbox" id="enableToolbar">
+    Enable Floating Toolbar
+  </label>
+
+  <button id="saveBtn">Save</button>
+
+  <script src="popup.js"></script>
+</body>
+</html>

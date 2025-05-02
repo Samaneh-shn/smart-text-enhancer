@@ -1,0 +1,147 @@
+:root {
+  /* Light theme variables */
+  --toolbar-background: #f0f0f0;
+  --toolbar-border: #ccc;
+  --button-background: #4CAF50; /* Green to match popup */
+  --button-hover-background: #45a049; /* Slightly darker green */
+  --button-text: white;
+  --enhanced-background: #e0f7fa;
+  --error-background: #ffebee;
+  --error-text: #c62828;
+  --overlay-background: rgba(255, 255, 255, 0.7);
+  --spinner-color: #4CAF50;
+}
+
+[data-theme="dark"] {
+  /* Dark theme variables */
+  --toolbar-background: #333333;
+  --toolbar-border: #555555;
+  --button-background: #388e3c; /* Darker green */
+  --button-hover-background: #2e7d32; /* Even darker green */
+  --button-text: #e0e0e0;
+  --enhanced-background: #37474f;
+  --error-background: #b71c1c;
+  --error-text: #ffcdd2;
+  --overlay-background: rgba(30, 30, 30, 0.7);
+  --spinner-color: #388e3c;
+}
+
+#smart-text-toolbar {
+  position: absolute;
+  display: flex;
+  background-color: var(--toolbar-background);
+  border: 1px solid var(--toolbar-border);
+  border-radius: 5px;
+  padding: 5px;
+  z-index: 1000;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  gap: 5px;
+  transition: background-color 0.3s, border-color 0.3s;
+}
+
+#smart-text-toolbar.collapsed {
+  padding: 2px;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+}
+
+#smart-text-toolbar button.toolbar-btn {
+  padding: 5px 10px;
+  background-color: var(--button-background);
+  color: var(--button-text);
+  border: none;
+  border-radius: 3px;
+  cursor: pointer;
+  font-size: 14px;
+  transition: background-color 0.3s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 80px; /* Ensure consistent button size during loading */
+}
+
+#smart-text-toolbar button.toolbar-btn:hover:not(:disabled) {
+  background-color: var(--button-hover-background);
+}
+
+#smart-text-toolbar button.toolbar-btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+#smart-text-toolbar button.collapse-btn {
+  padding: 2px;
+  min-width: 24px;
+  width: 24px;
+  height: 24px;
+}
+
+#smart-text-toolbar button.collapse-btn img {
+  width: 20px;
+  height: 20px;
+}
+
+#smart-text-toolbar .toolbar-icon {
+  width: 20px;
+  height: 20px;
+  cursor: pointer;
+}
+
+.spinner {
+  border: 2px solid var(--button-text);
+  border-top: 2px solid transparent;
+  border-radius: 50%;
+  width: 16px;
+  height: 16px;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.smart-text-enhanced {
+  background-color: var(--enhanced-background);
+  padding: 2px 4px;
+  border-radius: 3px;
+  transition: background-color 0.3s;
+}
+
+#smart-text-error {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background-color: var(--error-background);
+  color: var(--error-text);
+  padding: 10px 20px;
+  border-radius: 5px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  z-index: 1000;
+  max-width: 300px;
+  font-size: 14px;
+  display: none;
+  transition: opacity 0.3s;
+}
+
+#smart-text-loading-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: var(--overlay-background);
+  display: none;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+  transition: opacity 0.3s;
+}
+
+#smart-text-loading-overlay .spinner {
+  border: 4px solid var(--spinner-color);
+  border-top: 4px solid transparent;
+  width: 32px;
+  height: 32px;
+}

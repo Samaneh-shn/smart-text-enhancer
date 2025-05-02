@@ -1,0 +1,41 @@
+{
+  "manifest_version": 3,
+  "name": "Smart Text Enhancer",
+  "version": "1.1",
+  "description": "AI-powered text enhancer for simplifying, translating, summarizing, and formatting text on webpages.",
+  "permissions": [
+    "contextMenus",
+    "activeTab",
+    "storage",
+    "scripting",
+    "webNavigation"
+  ],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["content.js"],
+      "css": ["styles.css"],
+      "run_at": "document_end"
+    }
+  ],
+  "action": {
+    "default_popup": "popup.html"
+  },
+  "icons": {
+    "48": "icons/icon48.png",
+    "128": "icons/icon128.png"
+  },
+  "web_accessible_resources": [
+    {
+      "resources": [
+        "fonts/OpenDyslexic-Regular.woff",
+        "icons/collapse.png",
+        "icons/expand.png"
+      ],
+      "matches": ["<all_urls>"]
+    }
+  ]
+}
