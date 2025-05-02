@@ -1,0 +1,9 @@
+# macOS
+.DS_Store
+
+# Chrome extension build / dist folders
+dist/
+
+# Logs
+*.log
+EOF
